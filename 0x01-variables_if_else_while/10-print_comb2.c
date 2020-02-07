@@ -1,4 +1,4 @@
-#include <stdio.h>
+:#include <stdio.h>
 /**
 * main -  program that prints the alphabet in lowercase.
 * Return:0
@@ -15,7 +15,7 @@ int main(void)
 			putchar(hc);
 			if ((ch < 57) || (hc < 57))
 			{
-				putchar(',')
+				putchar(',');
 				putchar(' ');
 			}
 		}
