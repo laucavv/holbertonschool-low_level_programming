@@ -9,7 +9,7 @@ int main(void)
 {
 	long  n, m;
 
-	n = 1231952;
+	n = 612852475143;
 
 	for (m = 2; m < n; m++)
 	{
