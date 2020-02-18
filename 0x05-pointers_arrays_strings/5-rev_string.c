@@ -1,8 +1,7 @@
 #include "holberton.h"
 /**
  *rev_string - prints a string reverse
- *@s: string
- * Return: Always 0.
+ *@s: value
  */
 void rev_string(char *s)
 {
@@ -10,13 +9,17 @@ void rev_string(char *s)
 	char p;
 
 	j = 0;
+	i = 0;
 
-	for (i = 8; i >= j; i--)
+	while (s[i] != '\0')
+	{
+		i++;
+	}
+	for (i = (i - 1); i > j; i--)
 	{
 		p = s[j];
 		s[j] = s[i];
 		s[i] = p;
 		j++;
-
 	}
 }
