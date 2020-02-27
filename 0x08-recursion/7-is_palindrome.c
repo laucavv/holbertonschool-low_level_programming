@@ -5,12 +5,16 @@
  * @s: value
  * Return: size
  */
-int strlen(char *s)
+int strlen_me(char *s)
 {
 	if (!*s)
+	{
 		return (0);
+	}
 	else
-		return (1 + strlen(s + 1));
+	{
+		return (1 + strlen_me(s + 1));
+	}
 }
 
 /**
@@ -24,11 +28,17 @@ int strlen(char *s)
 int palindro(char *s, int l)
 {
 	if (l <= 0)
+	{
 		return (1);
+	}
 	if (s[0] == s[l - 1])
+	{
 		return (palindro(s + 1, l - 2));
+	}
 	else
+	{
 		return (0);
+	}
 }
 
 /**
@@ -39,9 +49,11 @@ int palindro(char *s, int l)
 
 int is_palindrome(char *s)
 {
-	int l = strlen(s);
+	int l = strlen_me(s);
 
 	if (l <= 1)
+	{
 		return (0);
+	}
 	return (palindro(s, l));
 }
