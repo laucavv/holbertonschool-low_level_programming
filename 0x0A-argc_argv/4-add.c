@@ -9,13 +9,13 @@
 */
 int _isdigit(char *c)
 {
-	int i, res;
+	int i;
 
 	for (i = 0; c[i] != '\0'; i++)
 	{
 		if (isdigit(c[i]) == 0)
 		{
-			res = 0;
+			 return (0);
 		}
 	}
 	return (1);
