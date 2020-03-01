@@ -15,7 +15,7 @@ int _isdigit(char *c)
 	{
 		if (isdigit(c[i]) == 0)
 		{
-			 return (0);
+			return (0);
 		}
 	}
 	return (1);
