@@ -17,12 +17,8 @@ int _isdigit(char *c)
 		{
 			res = 0;
 		}
-		else
-		{
-			res = 1;
-		}
 	}
-	return (res);
+	return (1);
 }
 /**
 *main - program that adds positive numbers.
