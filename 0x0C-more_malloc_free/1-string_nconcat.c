@@ -1,5 +1,6 @@
 #include "holberton.h"
 #include <stdlib.h>
+#include <stdio.h>
 /**
  * _strlen -  returns the length of a string.
  *@s: char
@@ -29,11 +30,17 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	char *dest;
 	unsigned int len1 = 0, len2 = 0, size = 0, j;
 
-	if (s1 || s2)
+	if (s1 == NULL)
 	{
-		len1 = _strlen(s1);
-		len2 = _strlen(s2);
+		s1 = "";
 	}
+	if (s2 == NULL)
+	{
+		s2 = "";
+	}
+
+	len1 = _strlen(s1);
+	len2 = _strlen(s2);
 	if (n >= len2)
 	{
 		n = len2;
