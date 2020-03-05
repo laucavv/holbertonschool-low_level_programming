@@ -19,6 +19,10 @@ int *array_range(int min, int max)
 	}
 	size = ((max - min) + 1);
 	arr = malloc(size * sizeof(int));
+	if(!arr)
+	{
+		return (NULL);
+	}
 	for (i = 0; i < size; i++, min++)
 	{
 		arr[i] = min;
