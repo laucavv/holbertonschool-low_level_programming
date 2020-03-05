@@ -1,34 +1,32 @@
-#include "holberton.h"
-#include <stdlib.h>
 #include <stdio.h>
+#include <stdlib.h>
+#include "holberton.h"
 /**
- * _strlen -  returns the length of a string.
- *@s: char
- * Return: i
+ * _strlen - function that calculates lenght of a string
+ * @str: string
+ * Return: the size  of the string
  */
-
-int _strlen(char *s)
+int _strlen(char *str)
 {
 	int i = 0;
 
-	while (s[i] != '\0')
+	while (*str++)
 	{
 		i++;
 	}
 	return (i);
-
 }
 /**
- * string_nconcat - function that concatenates two strings
- *@s1: char
- *@s2: char
- *@n: size
- * Return: dest
+ * string_nconcat - function that concatenate two strings
+ * @s1: first string
+ * @s2: second string
+ * @n: size of the string
+ * Return: concatenated string
  */
 char *string_nconcat(char *s1, char *s2, unsigned int n)
 {
-	char *dest;
-	unsigned int len1 = 0, len2 = 0, size = 0, j;
+	char *concat;
+	unsigned int conts1, lens1, total, lens2, conts2;
 
 	if (s1 == NULL)
 	{
@@ -39,29 +37,27 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 		s2 = "";
 	}
 
-	len1 = _strlen(s1);
-	len2 = _strlen(s2);
-	if (n >= len2)
+	lens1 = _strlen(s1);
+	lens2 = _strlen(s2);
+	if (n >= lens2)
 	{
-		n = len2;
+		n = lens2;
 	}
-	size = len1 + (n + 1);
-	dest = malloc(size * sizeof(char));
-	if (!dest)
+	total = lens1 + n;
+	concat = malloc(sizeof(char) * (total + 1));
+	if (concat == 0)
 	{
 		return (NULL);
 	}
-	for (j = 0; j < size; j++)
+	for (conts1 = 0; conts1 < lens1; conts1++)
 	{
-		if (j < len1)
-		{
-			dest[j] = s1[j];
-		}
-		else if (j >= len1 && (j < size || j < n))
-		{
-			dest[j] = s2[j - len1];
-		}
+		concat[conts1] = s1[conts1];
 	}
-	dest[j] = '\0';
-	return (dest);
+	for (conts2 = 0; conts2 < n; conts2++)
+	{
+		concat[conts1 + conts2] = s2[conts2];
+	}
+
+	concat[conts1 + conts2] = '\0';
+	return (concat);
 }
