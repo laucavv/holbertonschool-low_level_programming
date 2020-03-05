@@ -40,7 +40,7 @@ char *string_nconcat(char *s1, char *s2, unsigned int n)
 	}
 	else
 	{
-		size = len1 + n;
+		size = len1 + (n + 1);
 	}
 	dest = malloc(size * sizeof(char));
 	if (!dest)
