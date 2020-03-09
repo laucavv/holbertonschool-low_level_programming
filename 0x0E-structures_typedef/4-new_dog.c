@@ -53,6 +53,7 @@ char *_strdup(char *str)
  * @name: dog name
  * @age: dog age
  * @owner: dog owner
+ *Return: new_dog
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
@@ -88,7 +89,7 @@ dog_t *new_dog(char *name, float age, char *owner)
 		new_dog->owner = _strdup(owner);
 		if (!new_dog->owner)
 		{
-			free(new_dog->name);
+			free(new_dog->owner);
 			free(new_dog);
 			return (NULL);
 		}
