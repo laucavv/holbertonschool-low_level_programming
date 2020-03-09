@@ -57,43 +57,43 @@ char *_strdup(char *str)
  */
 dog_t *new_dog(char *name, float age, char *owner)
 {
-	dog_t *new_dog;
+	dog_t *newdo;
 
-	new_dog = malloc(sizeof(struct dog));
+	newdo = malloc(sizeof(struct dog));
 
-	if (!new_dog)
+	if (!newdo)
 	{
 		return (NULL);
 	}
 	if (!name)
 	{
-		free(new_dog);
+		free(newdo);
 	}
 	else
 	{
-		new_dog->name = _strdup(name);
-		if (!(new_dog->name))
+		newdo->name = _strdup(name);
+		if (!(newdo->name))
 		{
-			free(new_dog);
+			free(newdo);
 			return (NULL);
 		}
 
 	}
 	if (!owner)
 	{
-		free(new_dog);
+		free(newdo);
 		return (NULL);
 	}
 	else
 	{
-		new_dog->owner = _strdup(owner);
-		if (!new_dog->owner)
+		newdo->owner = _strdup(owner);
+		if (!newdo->owner)
 		{
-			free(new_dog->owner);
-			free(new_dog);
+			free(newdo->owner);
+			free(newdo);
 			return (NULL);
 		}
 	}
-	new_dog->age = age;
-	return (new_dog);
+	newdo->age = age;
+	return (newdo);
 }
