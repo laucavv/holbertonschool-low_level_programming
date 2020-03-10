@@ -18,36 +18,28 @@ int _strlen(char *s)
 	return (i);
 }
 /**
- *_strdup - function that returns a pointer
- *@str: char
- * Return: s
+ * _strcpy - unction that copies the string pointed to by src
+ *@dest: char
+ *@src:_ char
+ * Return: dest
  */
 
-char *_strdup(char *str)
+char *_strcpy(char *dest, char *src)
 {
-	int j, l;
-	char *s;
 
-	if (!str)
+	int i = 0, j;
+
+	while (src[i] != '\0')
 	{
-		return (NULL);
+		i++;
 	}
-
-	l = _strlen(str) + 1;
-
-	s = malloc(l * sizeof(char));
-	if (!s)
+	for (j = 0; j <= i; j++)
 	{
-		return (NULL);
+		dest[j] = src[j];
 	}
-
-	for (j = 0; j < l; j++)
-	{
-		s[j] = str[j];
-	}
-	s[j] = '\0';
-	return (s);
+	return (dest);
 }
+
 /**
  *new_dog - define a new type
  * @name: dog name
@@ -58,32 +50,34 @@ char *_strdup(char *str)
 dog_t *new_dog(char *name, float age, char *owner)
 {
 	dog_t *newdo;
+	int len1 = 0, len2 = 0;
+	char *newname, *newowner;
 
+	len1 = _strlen(name);
+	len2 = _strlen(owner);
+	newname = malloc(len1 + 1);
+	if (!newname)
+	{
+		return (NULL);
+	}
+	newowner = malloc(len2 + 1);
+	if (!newowner)
+	{
+		free(newname);
+		return (NULL);
+	}
 	newdo = malloc(sizeof(dog_t));
 
 	if (!newdo)
 	{
+		free(newname);
+		free(newowner);
 		return (NULL);
 	}
-	if (name)
-	{
-		newdo->name = _strdup(name);
-		if (!(newdo->name))
-		{
-			free(newdo);
-			return (NULL);
-		}
-
-	}
+	_strcpy(newname, name);
+	_strcpy(newowner, owner);
+	newdo->name = newname;
 	newdo->age = age;
-	if (owner)
-	{
-		newdo->owner = _strdup(owner);
-		if (!(newdo->owner))
-		{
-			free(newdo->name);
-			return (NULL);
-		}
-	}
+	newdo->owner = newowner;
 	return (newdo);
 }
