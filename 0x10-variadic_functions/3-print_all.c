@@ -1,18 +1,34 @@
 #include "variadic_functions.h"
-
+/**
+ *print_char - function that prints char.
+ *@c: char
+ */
 void print_char(va_list c)
 {
 	printf("%c", va_arg(c, int));
 }
+/**
+ *print_integer - function that prints integer.
+ *@i: int
+ */
 void print_integer(va_list i)
 {
 	printf("%d", va_arg(i, int));
 }
 
+/**
+ *print_float - function that prints float.
+ *@f: double
+ */
 void print_float(va_list f)
 {
 	printf("%f", va_arg(f, double));
 }
+
+/**
+ *print_string - function that prints strings
+ *@s: char
+ */
 void print_string(va_list s)
 {
 	if (s)
@@ -24,6 +40,10 @@ void print_string(va_list s)
 		printf("(nil)");
 	}
 }
+/**
+ *print_all - function that prints anything.
+ *@format: format
+ */
 void print_all(const char * const format, ...)
 {
 	va_list form;
