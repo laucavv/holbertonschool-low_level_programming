@@ -33,14 +33,11 @@ void print_string(va_list s)
 {
 	char *str = va_arg(s, char *);
 
-	if (str != NULL)
+	if (str == NULL)
 	{
-		printf("%s", str);
+		str = "(nil)";
 	}
-	else
-	{
-		printf("(nil)");
-	}
+	printf("%s", str);
 }
 /**
  *print_all - function that prints anything.
@@ -49,7 +46,7 @@ void print_string(va_list s)
 void print_all(const char * const format, ...)
 {
 	va_list form;
-	int i = 0, j;
+	int i, j;
 	char *separator = "";
 
 	for_t formats[] = {
@@ -60,13 +57,14 @@ void print_all(const char * const format, ...)
 		{NULL, NULL}
 	};
 	va_start(form, format);
+	i = 0;
 
 	while (format && format[i])
 	{
 		j = 0;
 		while (formats[j].of != NULL)
 		{
-			if (format[i] == formats[j].of[0])
+			if (format[i] == *(formats[j].of))
 			{
 
 				printf("%s", separator);
