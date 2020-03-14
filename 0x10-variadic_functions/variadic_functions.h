@@ -2,6 +2,7 @@
 #define VARIADIC_FUNCTIONS_H
 #include <stdio.h>
 #include <stdarg.h>
+#include <stdlib.h>
 /**
  * struct format - Struct format
  * @of: formats
