@@ -31,9 +31,11 @@ void print_float(va_list f)
  */
 void print_string(va_list s)
 {
-	if (s)
+	char *str = va_arg(s, char *);
+
+	if (str != NULL)
 	{
-		printf("%s", va_arg(s, char *));
+		printf("%s", str);
 	}
 	else
 	{
@@ -76,6 +78,6 @@ void print_all(const char * const format, ...)
 		}
 		i++;
 	}
-	printf("\n");
 	va_end(form);
+	printf("\n");
 }
