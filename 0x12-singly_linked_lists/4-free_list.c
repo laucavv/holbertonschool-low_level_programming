@@ -15,7 +15,7 @@ void free_list(list_t *head)
 	{
 		auxend = aux->next;
 		free(aux->str);
-		free(aux->next);
+		free(aux);
 		aux = auxend;
 	}
 }
