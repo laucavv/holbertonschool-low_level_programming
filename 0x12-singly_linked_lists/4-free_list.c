@@ -1,0 +1,21 @@
+#include "lists.h"
+
+/**
+ * free_list -  function that frees a list.
+ * @head: first item in the list
+ */
+
+void free_list(list_t *head)
+{
+	list_t *aux, *auxend;
+
+	aux = head;
+
+	while (p != NULL)
+	{
+		auxend = aux->next;
+		free(aux->str);
+		free(aux->next);
+		aux = auxend;
+	}
+}
