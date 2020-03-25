@@ -14,6 +14,7 @@ size_t print_listint_safe(const listint_t *head)
 	while (head != NULL)
 	{
 		first_back = head - head->next;
+		length++;
 		locate = (void *)head;
 		printf("[%p] %d\n", locate, head->n);
 		if (first_back > 0)
@@ -23,10 +24,10 @@ size_t print_listint_safe(const listint_t *head)
 		else
 		{
 			locate = head->next;
+			head = head->next;
 			printf("-> [%p] %d\n", locate, head->n);
 			break;
 		}
-		length++;
 	}
 	return (length);
 }
