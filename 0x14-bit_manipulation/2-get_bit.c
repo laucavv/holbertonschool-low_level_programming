@@ -17,11 +17,12 @@ int get_bit(unsigned long int n, unsigned int index)
 		if (i == index)
 		{
 			pos = (n & 1);
+			return (pos);
 			break;
 		}
 		n = n >> 1;
 		i++;
 
 	}
-	return (pos);
+	return (-1);
 }
