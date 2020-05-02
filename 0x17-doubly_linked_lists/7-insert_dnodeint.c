@@ -1,12 +1,29 @@
 #include "lists.h"
+
 /**
- * insert_dnodeint_at_index - check the code for Holberton School students.
+ * len - returns the number of elements in a linked dlistint_t list.
+ * @h:list
+ * Return: the number of nodes
+ */
+size_t len(const dlistint_t *h)
+{
+	size_t length = 0;
+
+	while (h)
+	{
+		h = h->next;
+		length++;
+	}
+	return (length);
+}
+
+/**
+ * insert_dnodeint_at_index - inserts a new node at a given position.
  * @h:list
  * @idx:index
  * @n:value
  * Return: Always 0.
  */
-
 dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 {
 	unsigned int i = 0;
@@ -30,7 +47,7 @@ dlistint_t *insert_dnodeint_at_index(dlistint_t **h, unsigned int idx, int n)
 		*h = node;
 		return (node);
 	}
-	while (tmp && idx <= dlistint_len(tmp))
+	while (tmp && idx <= len(tmp))
 	{
 		if (i == (idx - 1))
 		{
