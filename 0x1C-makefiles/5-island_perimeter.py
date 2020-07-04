@@ -1,6 +1,14 @@
 #!/usr/bin/python3
+"""
+    function that returns the perimeter of the island described in grid
+"""
+
 
 def island_perimeter(grid):
+    """
+        0 represents a water zone
+        1 represents a land zone
+    """
     pos = 0
     side = 0
 
